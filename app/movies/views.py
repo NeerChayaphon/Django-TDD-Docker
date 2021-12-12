@@ -13,6 +13,16 @@ class MovieList(APIView):
         serializer = MovieSerializer(movies, many=True)
         return Response(serializer.data)
 
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                "title": openapi.Schema(type=openapi.TYPE_STRING),
+                "genre": openapi.Schema(type=openapi.TYPE_STRING),
+                "year": openapi.Schema(type=openapi.TYPE_STRING),
+            },
+        )
+    )
     def post(self, request, format=None):
         serializer = MovieSerializer(data=request.data)
         if serializer.is_valid():
@@ -33,6 +43,16 @@ class MovieDetail(APIView):
         serializer = MovieSerializer(movie)
         return Response(serializer.data)
 
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                "title": openapi.Schema(type=openapi.TYPE_STRING),
+                "genre": openapi.Schema(type=openapi.TYPE_STRING),
+                "year": openapi.Schema(type=openapi.TYPE_STRING),
+            },
+        )
+    )
     def put(self, request, pk, format=None):
         movie = self.get_object(pk)
         serializer = MovieSerializer(movie, data=request.data)
@@ -40,7 +60,7 @@ class MovieDetail(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
     def delete(self, request, pk, format=None):
         movie = self.get_object(pk)
         movie.delete()
