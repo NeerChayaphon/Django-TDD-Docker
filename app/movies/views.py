@@ -6,6 +6,9 @@ from rest_framework import status
 from .models import Movie
 from .serializers import MovieSerializer
 
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+
 
 class MovieList(APIView):
     def get(self, request, format=None):
