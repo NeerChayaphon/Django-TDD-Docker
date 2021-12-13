@@ -67,7 +67,7 @@ def test_add_movie_invalid_json_keys(client):
 @pytest.mark.django_db
 def test_get_single_movie(client, add_movie):
     movie = add_movie(title="The Big Lebowski", genre="comedy", year="1998")
-    resp = client.get(f"/api/movies/{movie.id}/")
+    resp = client.get(f"/api/movies/{movie.id}")
     assert resp.status_code == 200
     assert resp.data["title"] == "The Big Lebowski"
 
@@ -100,7 +100,7 @@ def test_update_movie(client, add_movie):
     assert resp.data["title"] == "The Big Lebowski"
     assert resp.data["year"] == "1997"
 
-    resp_two = client.get(f"/api/movies/{movie.id}/")
+    resp_two = client.get(f"/api/movies/{movie.id}")
     assert resp_two.status_code == 200
     assert resp_two.data["title"] == "The Big Lebowski"
     assert resp.data["year"] == "1997"
@@ -108,7 +108,7 @@ def test_update_movie(client, add_movie):
 
 @pytest.mark.django_db
 def test_update_movie_incorrect_id(client):
-    resp = client.put(f"/api/movies/99/")
+    resp = client.put(f"/api/movies/99")
     assert resp.status_code == 404
 
 
@@ -120,7 +120,7 @@ def test_update_movie_incorrect_id(client):
 def test_update_movie_invalid_json(client, add_movie, payload, status_code):
     movie = add_movie(title="The Big Lebowski", genre="comedy", year="1998")
     resp = client.put(
-        f"/api/movies/{movie.id}/",
+        f"/api/movies/{movie.id}",
         payload,
         content_type="application/json",
     )
@@ -131,11 +131,11 @@ def test_update_movie_invalid_json(client, add_movie, payload, status_code):
 def test_remove_movie(client, add_movie):
     movie = add_movie(title="The Big Lebowski", genre="comedy", year="1998")
 
-    resp = client.get(f"/api/movies/{movie.id}/")
+    resp = client.get(f"/api/movies/{movie.id}")
     assert resp.status_code == 200
     assert resp.data["title"] == "The Big Lebowski"
 
-    resp_two = client.delete(f"/api/movies/{movie.id}/")
+    resp_two = client.delete(f"/api/movies/{movie.id}")
     assert resp_two.status_code == 204
 
     resp_three = client.get("/api/movies/")
@@ -145,5 +145,5 @@ def test_remove_movie(client, add_movie):
 
 @pytest.mark.django_db
 def test_remove_movie_incorrect_id(client):
-    resp = client.delete(f"/api/movies/99/")
+    resp = client.delete(f"/api/movies/99")
     assert resp.status_code == 404
