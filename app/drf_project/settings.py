@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'movies', 
-    "drf_yasg",
 ]
 AUTH_USER_MODEL = 'movies.CustomUser'
 
@@ -144,7 +143,3 @@ if not DEBUG:
             "rest_framework.renderers.JSONRenderer",
         )
     }
-
-SWAGGER_SETTINGS = {
-    "USE_SESSION_AUTH": False
-}
