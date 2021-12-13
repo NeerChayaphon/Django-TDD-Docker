@@ -92,7 +92,7 @@ def test_update_movie(client, add_movie):
     movie = add_movie(title="The Big Lebowski", genre="comedy", year="1998")
 
     resp = client.put(
-        f"/api/movies/{movie.id}/",
+        f"/api/movies/{movie.id}",
         {"title": "The Big Lebowski", "genre": "comedy", "year": "1997"},
         content_type="application/json"
     )
