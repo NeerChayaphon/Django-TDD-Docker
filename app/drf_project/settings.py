@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'movies', 
     "drf_yasg",
+    'rest_framework_swagger',
 ]
 AUTH_USER_MODEL = 'movies.CustomUser'
 
