@@ -8,3 +8,8 @@
 5. Run unit and integration tests inside a Docker container.
 6. Implement an API with Django REST Framework Views and Serializers.
 7. Learn GitLab CI/CD for continuous integration and deployment.
+
+## API Route
+| HTTP Method | CRUD Method | Endpoint | Result |
+| ----------- | ----------- | ---------| -------|
+| GET | READ | /api/movies | Get all movies |
