@@ -21,3 +21,28 @@ API url : https://stark-shore-47287.herokuapp.com
 | /api/movies/:id | DELETE | DELETE | Delete a movie |
 | /ping | GET | READ | Check API status |
 
+## Run on your machine
+Build the images:
+```
+$ docker-compose build
+```
+Run the containers:
+```
+$ docker-compose up -d
+```
+Create migrations:
+```
+$ docker-compose exec movies python manage.py makemigrations
+```
+Apply migrations:
+```
+$ docker-compose exec movies python manage.py migrate
+```
+Run the tests:
+```
+$ docker-compose exec movies pytest -p no:warnings
+```
+Bring down the containers:
+```
+$ docker-compose down
+```
