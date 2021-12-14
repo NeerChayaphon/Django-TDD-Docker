@@ -10,9 +10,10 @@
 7. Learn GitLab CI/CD for continuous integration and deployment.
 
 ## API Route
+API url : https://stark-shore-47287.herokuapp.com
 | Endpoint | HTTP Method | CRUD Method | Result |
 | ----------- | ----------- | ---------| -------|
-| /api/movies | GET | READ | Get all movies |
+| https://stark-shore-47287.herokuapp.com/api/movies | GET | READ | Get all movies |
 | /api/movies/:id | GET | READ | Get a single movie |
 | /api/movies | POST | CREATE | Add a movie |
 | /api/movies/:id | PUT | UPDATE | Update a movie |
