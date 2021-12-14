@@ -10,13 +10,13 @@
 7. Learn GitLab CI/CD for continuous integration and deployment.
 
 ## API Route
-| HTTP Method | CRUD Method | Endpoint | Result |
+| Endpoint | HTTP Method | CRUD Method | Result |
 | ----------- | ----------- | ---------| -------|
-| GET | READ | /api/movies | Get all movies |
-| GET | READ | /api/movies/:id | Get a single movie |
-| POST | CREATE | /api/movies | Add a movie |
-| PUT | UPDATE | /api/movies/:id | Update a movie |
-| GET | READ | /api/movies | Get all movies |
-| DELETE | DELETE | /api/movies/:id | Delete a movie |
-| GET | READ | /ping | Check API status |
+| /api/movies | GET | READ | Get all movies |
+| /api/movies/:id | GET | READ | Get a single movie |
+| /api/movies | POST | CREATE | Add a movie |
+| /api/movies/:id | PUT | UPDATE | Update a movie |
+| /api/movies | GET | READ | Get all movies |
+| /api/movies/:id | DELETE | DELETE | Delete a movie |
+| /ping | GET | READ | Check API status |
 
