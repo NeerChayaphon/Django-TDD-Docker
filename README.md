@@ -46,3 +46,7 @@ Bring down the containers:
 ```
 $ docker-compose down
 ```
+
+## TO-DO
+1. Add filtering, sorting, pagination and field limiting
+2. Add React Front-end
